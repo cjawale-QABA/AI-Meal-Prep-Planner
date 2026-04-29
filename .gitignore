@@ -1,3 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+dist/
+build/
+*.egg-info/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -11,7 +17,7 @@ __pycache__/
 build/
 develop-eggs/
 dist/
-downloads/
+downloads/ 
 eggs/
 .eggs/
 lib/
