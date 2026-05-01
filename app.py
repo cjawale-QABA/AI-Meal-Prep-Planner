@@ -1,9 +1,16 @@
+
 import streamlit as st
-import globals
 from utils.mock_generator import generate_mock_plan
 from utils.meal_planner import planner
+from google import genai
+import os
+from google.genai import types
+from prompts import system_prompt
 from dotenv import load_dotenv
 from appliances import KITCHEN_APPLIANCES
+from datetime import datetime
+
+load_dotenv()
 
 st.set_page_config(page_title="AI Meal Prep Planner", layout="wide")
 
@@ -62,7 +69,7 @@ store = st.sidebar.selectbox(
 # ---------------------------
 if st.button("Generate Meal Plan 🚀"):
 
-    globals.user_input = {
+    user_input = {
         "ethnicity": ethnicity,
         "allergies": allergies,
         "meat_pref": meat_pref,
@@ -78,9 +85,10 @@ if st.button("Generate Meal Plan 🚀"):
         "store": store
     }
 
-    result = planner(globals.user_input)
-    # result = generate_mock_plan(user_input)
-    print("Generated Meal Plan:", result)
+    with st.spinner("Calling Gemini via REST..."):
+        result = planner(user_input)
+
+    st.success("Generated Meal Plan Successfully!")
 
     # ---------------------------
     # Output Tabs
@@ -89,12 +97,12 @@ if st.button("Generate Meal Plan 🚀"):
 
     with tab1:
         st.subheader("Your Meal Plan")
-        # st.write(result["meal_plan"])
+        st.write(result["meal_plan"])
 
     with tab2:
         st.subheader("Grocery List")
-        # st.write(result["grocery_list"])
+        st.write(result["grocery_list"])
 
     with tab3:
         st.subheader("Cooking Plan")
-        # st.write(result["cooking_plan"])
+        st.write(result["batch_cooking_plan"])
