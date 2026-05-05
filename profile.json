@@ -1,22 +1,8 @@
 {
-  "ethnicity": "Indian",
+  "ethnicity": "",
   "allergies": "",
-  "meat_pref": "All",
-  "spicy_level": 3,
-  "cooking_level": "Beginner",
-  "equipment": [
-    "Air fryer",
-    "Convection oven",
-    "Dishwasher",
-    "Electric kettle",
-    "Hand mixer",
-    "Freezer",
-    "Induction cooktop",
-    "Microwave",
-    "Pressure cooker",
-    "Refrigerator",
-    "Instant pot",
-    "Water purifier",
-    "Wet grinder"
-  ]
+  "meat_pref": "",
+  "spicy_level": 0,
+  "cooking_level": "",
+  "equipment": []
 }
