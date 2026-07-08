@@ -174,7 +174,12 @@ def display_pre_prep_plan(pre_prep_plan):
 
 st.set_page_config(page_title="AI Meal Prep Planner", layout="wide")
 st.title("🍱 AI Meal Prep Planner")
+st.text("Welcome to the AI Meal Prep Planner! This app helps you plan your meals, generate grocery lists, and get cooking instructions based on your preferences.")
 st.text("Plan your meals, generate grocery lists, and get cooking instructions with AI assistance!")
+st.text("Start by selecting your preferences like - cuisine type, dietary restrictions, and available ingredients.")
+st.text("Then, click 'Prepare meal plan' to generate a personalized meal plan, grocery list, and cooking instructions.")
+st.text("You can also edit your profile anytime from the sidebar to refine your meal plans.")
+st.text("Note: The AI-generated meal plans are suggestions. Always check for allergies and dietary restrictions before cooking.")
 
 # Load profile into session state on first run
 if "profile" not in st.session_state:
