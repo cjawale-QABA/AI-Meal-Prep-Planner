@@ -172,8 +172,9 @@ def display_pre_prep_plan(pre_prep_plan):
 # App Setup
 # ---------------------------
 
-st.set_page_config(page_title="Weekly Meal Prep Assistant", layout="wide")
+st.set_page_config(page_title="AI Meal Prep Planner", layout="wide")
 st.title("🍱 AI Meal Prep Planner")
+st.text("Plan your meals, generate grocery lists, and get cooking instructions with AI assistance!")
 
 # Load profile into session state on first run
 if "profile" not in st.session_state:
