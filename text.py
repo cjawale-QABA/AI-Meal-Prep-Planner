@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from google import genai
 from prompts import system_prompt
+import streamlit as st
 
 user_data = {
    "ethnicity":"Asian",
@@ -24,13 +25,16 @@ user_data = {
 
 load_dotenv()
 api_key = os.environ.get("GEMINI_API_KEY")
-client = genai.Client(api_key=api_key)
-response = client.models.generate_content(
-            model="gemini-flash-latest",
-            contents=user_data.__repr__(),
-            config=genai.types.GenerateContentConfig(
+if api_key == "":
+    api_key = os.getenv("GEMINI_API_KEY") or st.secrets.get("GEMINI_API_KEY")
+else:
+    client = genai.Client(api_key=api_key)
+    response = client.models.generate_content(
+                model="gemini-flash-latest",
+                contents=user_data.__repr__(),
+                config=genai.types.GenerateContentConfig(
                 system_instruction=system_prompt,
                 temperature=0,
             ),
-        )
+        )    
 print("Response text:", response.text)
